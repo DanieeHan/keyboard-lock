@@ -1,0 +1,4 @@
+module OfflineGuard {
+    header "OfflineGuard.h"
+    export *
+}

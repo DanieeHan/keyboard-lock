@@ -1,0 +1,15 @@
+.build/
+dist/
+.DS_Store
+*.xcuserstate
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.keychain
+*.keychain-db
+Signing/
