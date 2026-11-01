@@ -2,9 +2,13 @@
 
 清洁键盘时暂停键盘输入的小型原生 macOS 应用。SwiftUI + AppKit，黑白灰与深蓝配色；无第三方依赖、浏览器内核、账号或服务器。
 
-## 打开
+## 下载与安装
 
-使用 `dist/键盘锁.zip`：先将 ZIP 移到非 iCloud 同步目录，解压后将“键盘锁”放入“应用程序”，再打开并授予权限。这样可避免同步目录自动添加文件属性影响签名，也避免移动应用后需要重新授权。`dist/键盘锁.app` 仅为开发方便保留的副本，正式使用请从 ZIP 解压。
+**[下载安装包 · 1.0.3](https://github.com/DanieeHan/keyboard-lock/releases/download/v1.0.3/KeyboardLock-1.0.3-macOS-arm64.zip)** · [版本说明与校验文件](https://github.com/DanieeHan/keyboard-lock/releases/tag/v1.0.3)
+
+适用于 Apple Silicon（M 系列）Mac，目标系统 macOS 13 及以上。当前为测试版，尚未进行 Apple 公证；旧版 macOS 与 Intel Mac 尚未实机验证。仓库目前为私有，下载需登录有访问权限的 GitHub 账号。
+
+将下载的 ZIP 移到非 iCloud 同步目录，解压后将“键盘锁”放入“应用程序”，再打开并授予权限。这样可避免同步目录自动添加文件属性影响签名，也避免移动应用后需要重新授权。本地构建的安装包为 `dist/键盘锁.zip`；`dist/键盘锁.app` 仅为开发方便保留的副本，正式使用请从 ZIP 解压。ZIP 内附 MIT License。
 
 建议固定使用 `~/Applications/键盘锁.app` 或 `/Applications/键盘锁.app`，保留一个日常使用位置。更新前先退出旧版本，再替换该位置的应用。
 
@@ -109,3 +113,7 @@ CODE_SIGN_IDENTITY="现有代码签名身份的完整名称或 SHA-1 指纹" ./s
 建议首次用 1 分钟测试：确认普通字母、Command／Shift 组合与媒体键不会影响其他应用；验证鼠标解锁和到时恢复；随后分别验证内置、外接键盘及锁定中接入设备。若系统显示中断或已解锁，停止擦拭后重新开始。
 
 实现参考：[Apple CGEvent 文档](https://developer.apple.com/documentation/coregraphics/cgevent)、[Apple App Sandbox 兼容性说明](https://developer.apple.com/documentation/security/protecting-user-data-with-app-sandbox)。离线接口的弃用状态同时依据本机 SDK 的 `sandbox.h`。
+
+## 许可证
+
+[MIT License](LICENSE) · Copyright (c) 2026 DanieeHan

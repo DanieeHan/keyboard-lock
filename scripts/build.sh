@@ -22,7 +22,8 @@ cleanup_build() {
     exit "$result"
 }
 trap cleanup_build EXIT
-APP_PATH="$STAGING_DIR/键盘锁.app"
+PACKAGE_DIR="$STAGING_DIR/package"
+APP_PATH="$PACKAGE_DIR/键盘锁.app"
 SDK_PATH="$(xcrun --sdk macosx --show-sdk-path)"
 DEPLOYMENT_TARGET="13.0"
 SIGNING_OPTIONS=(--options runtime)
@@ -102,13 +103,15 @@ printf 'APPL????' > "$APP_PATH/Contents/PkgInfo"
 
 # Metadata-free ZIP contents remain stable even when the archive itself lives
 # in a synced folder. Re-extract the actual deliverable and verify its signature.
+cp "$PROJECT_ROOT/LICENSE" "$PACKAGE_DIR/LICENSE"
 /usr/bin/ditto --norsrc --noextattr --noqtn --noacl \
-    -c -k --keepParent "$APP_PATH" "$ZIP_PATH"
+    -c -k "$PACKAGE_DIR" "$ZIP_PATH"
 VERIFICATION_DIR="$STAGING_DIR/verified"
 mkdir -p "$VERIFICATION_DIR"
 /usr/bin/ditto --norsrc --noextattr --noqtn --noacl \
     -x -k "$ZIP_PATH" "$VERIFICATION_DIR"
 /usr/bin/codesign --verify --deep --strict "$VERIFICATION_DIR/键盘锁.app"
+cmp "$PROJECT_ROOT/LICENSE" "$VERIFICATION_DIR/LICENSE"
 
 # Keep a convenient development copy, but never claim its signature remains
 # valid after the sync provider adds bundle metadata. Install from the ZIP.
