@@ -6,7 +6,7 @@
 
 **[下载安装包 · 1.0.3](https://github.com/DanieeHan/keyboard-lock/releases/download/v1.0.3/KeyboardLock-1.0.3-macOS-arm64.zip)** · [版本说明与校验文件](https://github.com/DanieeHan/keyboard-lock/releases/tag/v1.0.3)
 
-适用于 Apple Silicon（M 系列）Mac，目标系统 macOS 13 及以上。当前为测试版，尚未进行 Apple 公证；旧版 macOS 与 Intel Mac 尚未实机验证。仓库目前为私有，下载需登录有访问权限的 GitHub 账号。
+适用于 Apple Silicon（M 系列）Mac，目标系统 macOS 13 及以上。当前为测试版，尚未进行 Apple 公证；旧版 macOS 与 Intel Mac 尚未实机验证。源码和安装包均公开，无需登录即可下载。
 
 将下载的 ZIP 移到非 iCloud 同步目录，解压后将“键盘锁”放入“应用程序”，再打开并授予权限。这样可避免同步目录自动添加文件属性影响签名，也避免移动应用后需要重新授权。本地构建的安装包为 `dist/键盘锁.zip`；`dist/键盘锁.app` 仅为开发方便保留的副本，正式使用请从 ZIP 解压。ZIP 内附 MIT License。
 
